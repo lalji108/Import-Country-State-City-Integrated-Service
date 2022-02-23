@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32126.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "XML Country State City Import", "XML Country State City Import\XML Country State City Import.dtproj", "{6464E5AC-AAB6-4942-AE2F-CA005998E1B2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6464E5AC-AAB6-4942-AE2F-CA005998E1B2}.Development|Default.ActiveCfg = Development
+		{6464E5AC-AAB6-4942-AE2F-CA005998E1B2}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {20257D2C-B59F-4B77-8D92-E9BF9E891161}
+	EndGlobalSection
+EndGlobal

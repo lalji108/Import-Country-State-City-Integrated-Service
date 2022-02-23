@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="countries_states_cities">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="country_state_city">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" name="id" type="xs:unsignedByte" />
+              <xs:element minOccurs="0" name="name" type="xs:string" />
+              <xs:element minOccurs="0" name="iso3" type="xs:string" />
+              <xs:element minOccurs="0" name="iso2" type="xs:string" />
+              <xs:element minOccurs="0" name="numeric_code" type="xs:unsignedShort" />
+              <xs:element minOccurs="0" name="phone_code" type="xs:string" />
+              <xs:element minOccurs="0" name="capital" type="xs:string" />
+              <xs:element minOccurs="0" name="currency" type="xs:string" />
+              <xs:element minOccurs="0" name="currency_name" type="xs:string" />
+              <xs:element minOccurs="0" name="currency_symbol" type="xs:string" />
+              <xs:element minOccurs="0" name="tld" type="xs:string" />
+              <xs:element minOccurs="0" name="native" type="xs:string" />
+              <xs:element minOccurs="0" name="region" type="xs:string" />
+              <xs:element minOccurs="0" name="subregion" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="timezones">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="zoneName" type="xs:string" />
+                    <xs:element minOccurs="0" name="gmtOffset" type="xs:int" />
+                    <xs:element minOccurs="0" name="gmtOffsetName" type="xs:string" />
+                    <xs:element minOccurs="0" name="abbreviation" type="xs:string" />
+                    <xs:element minOccurs="0" name="tzName" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" name="translations">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="kr" type="xs:string" />
+                    <xs:element minOccurs="0" name="br" type="xs:string" />
+                    <xs:element minOccurs="0" name="pt" type="xs:string" />
+                    <xs:element minOccurs="0" name="nl" type="xs:string" />
+                    <xs:element minOccurs="0" name="hr" type="xs:string" />
+                    <xs:element minOccurs="0" name="fa" type="xs:string" />
+                    <xs:element minOccurs="0" name="de" type="xs:string" />
+                    <xs:element minOccurs="0" name="es" type="xs:string" />
+                    <xs:element minOccurs="0" name="fr" type="xs:string" />
+                    <xs:element minOccurs="0" name="ja" type="xs:string" />
+                    <xs:element minOccurs="0" name="it" type="xs:string" />
+                    <xs:element minOccurs="0" name="cn" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" name="latitude" type="xs:decimal" />
+              <xs:element minOccurs="0" name="longitude" type="xs:decimal" />
+              <xs:element minOccurs="0" name="emoji" type="xs:string" />
+              <xs:element minOccurs="0" name="emojiU" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="states">
+                <xs:complexType>
+                  <xs:sequence minOccurs="0">
+                    <xs:element minOccurs="0" name="id" type="xs:unsignedShort" />
+                    <xs:element minOccurs="0" name="name" type="xs:string" />
+                    <xs:element minOccurs="0" name="state_code" type="xs:string" />
+                    <xs:element minOccurs="0" name="latitude" type="xs:string" />
+                    <xs:element minOccurs="0" name="longitude" type="xs:string" />
+                    <xs:element minOccurs="0" name="type" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="cities">
+                      <xs:complexType>
+                        <xs:sequence minOccurs="0">
+                          <xs:element minOccurs="0" name="id" type="xs:unsignedInt" />
+                          <xs:element minOccurs="0" name="name" type="xs:string" />
+                          <xs:element minOccurs="0" name="latitude" type="xs:decimal" />
+                          <xs:element minOccurs="0" name="longitude" type="xs:decimal" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
