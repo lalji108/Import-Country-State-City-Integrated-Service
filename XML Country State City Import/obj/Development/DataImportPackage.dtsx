@@ -7,12 +7,12 @@
   DTS:CreatorName="DESKTOP-BQC6PN7\Admin"
   DTS:DTSID="{B9BEE74B-A4EE-4F83-B51E-C58F82F1686A}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
   DTS:LocaleID="16393"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="31"
-  DTS:VersionGUID="{8567E9AD-166B-49AC-A2E3-A6804CACB676}">
+  DTS:VersionBuild="44"
+  DTS:VersionGUID="{0D39AC50-944E-4536-A994-CF328023AEAE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -37,7 +37,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="XMLFileWithPath">
       <DTS:VariableValue
-        DTS:DataType="8">D:\Orion eSolutions\SSIS\Examples\Sample Data\XMLCountryStateCity\CountriesStatesCities.xml</DTS:VariableValue>
+        DTS:DataType="8">D:\Orion eSolutions\SSIS Examples\Import-Country-State-City-Integrated-Service\SampleData\CountriesStatesCities.xml</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -55,160 +55,6 @@
         <pipeline
           version="1">
           <components>
-            <component
-              refId="Package\City Data Flow Task\Data Conversion"
-              componentClassID="Microsoft.DataConvert"
-              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Data Conversion"
-              name="Data Conversion"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\City Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
-                  name="Data Conversion Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\City Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[id]"
-                      cachedDataType="ui4"
-                      cachedName="id"
-                      lineageId="Package\City Data Flow Task\XML Source.Outputs[cities].Columns[id]" />
-                    <inputColumn
-                      refId="Package\City Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[latitude]"
-                      cachedDataType="decimal"
-                      cachedName="latitude"
-                      cachedScale="10"
-                      lineageId="Package\City Data Flow Task\XML Source.Outputs[cities].Columns[latitude]" />
-                    <inputColumn
-                      refId="Package\City Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[longitude]"
-                      cachedDataType="decimal"
-                      cachedName="longitude"
-                      cachedScale="10"
-                      lineageId="Package\City Data Flow Task\XML Source.Outputs[cities].Columns[longitude]" />
-                    <inputColumn
-                      refId="Package\City Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[states_Id]"
-                      cachedDataType="ui8"
-                      cachedName="states_Id"
-                      lineageId="Package\City Data Flow Task\XML Source.Outputs[cities].Columns[states_Id]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\City Data Flow Task\Data Conversion.Outputs[Data Conversion Output]"
-                  exclusionGroup="1"
-                  name="Data Conversion Output"
-                  synchronousInputId="Package\City Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\City Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of id]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\City Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of id]"
-                      name="Copy of id"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\City Data Flow Task\XML Source.Outputs[cities].Columns[id]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\City Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of latitude]"
-                      dataType="decimal"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\City Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of latitude]"
-                      name="Copy of latitude"
-                      scale="10"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\City Data Flow Task\XML Source.Outputs[cities].Columns[latitude]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\City Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of longitude]"
-                      dataType="decimal"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\City Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of longitude]"
-                      name="Copy of longitude"
-                      scale="10"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\City Data Flow Task\XML Source.Outputs[cities].Columns[longitude]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\City Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of states_Id]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\City Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of states_Id]"
-                      name="Copy of states_Id"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\City Data Flow Task\XML Source.Outputs[cities].Columns[states_Id]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\City Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Data Conversion Error Output"
-                  synchronousInputId="Package\City Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\City Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\City Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\City Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\City Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
             <component
               refId="Package\City Data Flow Task\OLE DB Destination"
               componentClassID="Microsoft.OLEDBDestination"
@@ -247,7 +93,7 @@
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">3</property>
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
@@ -255,7 +101,7 @@
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">true</property>
+                  name="FastLoadKeepNulls">false</property>
                 <property
                   dataType="System.String"
                   description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
@@ -282,31 +128,38 @@
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\City Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of latitude]"
+                      refId="Package\City Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[latitude]"
                       cachedDataType="decimal"
-                      cachedName="Copy of latitude"
+                      cachedName="latitude"
                       cachedScale="10"
                       externalMetadataColumnId="Package\City Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[latitude]"
-                      lineageId="Package\City Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of latitude]" />
+                      lineageId="Package\City Data Flow Task\XML Source.Outputs[cities].Columns[latitude]" />
                     <inputColumn
-                      refId="Package\City Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of longitude]"
+                      refId="Package\City Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[longitude]"
                       cachedDataType="decimal"
-                      cachedName="Copy of longitude"
+                      cachedName="longitude"
                       cachedScale="10"
                       externalMetadataColumnId="Package\City Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[longitude]"
-                      lineageId="Package\City Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of longitude]" />
+                      lineageId="Package\City Data Flow Task\XML Source.Outputs[cities].Columns[longitude]" />
                     <inputColumn
-                      refId="Package\City Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of states_Id]"
-                      cachedDataType="i4"
-                      cachedName="Copy of states_Id"
+                      refId="Package\City Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[states_Id]"
+                      cachedDataType="ui8"
+                      cachedName="states_Id"
                       externalMetadataColumnId="Package\City Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[stateid]"
-                      lineageId="Package\City Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of states_Id]" />
+                      lineageId="Package\City Data Flow Task\XML Source.Outputs[cities].Columns[states_Id]" />
                     <inputColumn
-                      refId="Package\City Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of id]"
-                      cachedDataType="i4"
-                      cachedName="Copy of id"
+                      refId="Package\City Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="name"
+                      externalMetadataColumnId="Package\City Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[name]"
+                      lineageId="Package\City Data Flow Task\XML Source.Outputs[cities].Columns[name]" />
+                    <inputColumn
+                      refId="Package\City Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[id]"
+                      cachedDataType="ui4"
+                      cachedName="id"
                       externalMetadataColumnId="Package\City Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cityid]"
-                      lineageId="Package\City Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of id]" />
+                      lineageId="Package\City Data Flow Task\XML Source.Outputs[cities].Columns[id]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -328,9 +181,8 @@
                       name="stateid" />
                     <externalMetadataColumn
                       refId="Package\City Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
+                      dataType="wstr"
+                      length="1000"
                       name="name" />
                     <externalMetadataColumn
                       refId="Package\City Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cityid]"
@@ -393,7 +245,7 @@
                   dataType="System.String"
                   description="The XML schema definition used by the XML source adapter."
                   expressionType="Notify"
-                  name="XMLSchemaDefinition">D:\Orion eSolutions\SSIS\Examples\Sample Data\XMLCountryStateCity\CountriesStatesCities.xsd</property>
+                  name="XMLSchemaDefinition">D:\Orion eSolutions\SSIS Examples\Import-Country-State-City-Integrated-Service\SampleData\CountriesStatesCities.xsd</property>
                 <property
                   dataType="System.Boolean"
                   description="Identifies whether or not to use inline schema."
@@ -1092,6 +944,16 @@
                       externalMetadataColumnId="Package\City Data Flow Task\XML Source.Outputs[cities].ExternalColumns[id]"
                       lineageId="Package\City Data Flow Task\XML Source.Outputs[cities].Columns[id]"
                       name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\City Data Flow Task\XML Source.Outputs[cities].Columns[name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\City Data Flow Task\XML Source.Outputs[cities].ExternalColumns[name]"
+                      length="255"
+                      lineageId="Package\City Data Flow Task\XML Source.Outputs[cities].Columns[name]"
+                      name="name"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\City Data Flow Task\XML Source.Outputs[cities].Columns[latitude]"
@@ -2175,14 +2037,9 @@
           <paths>
             <path
               refId="Package\City Data Flow Task.Paths[cities]"
-              endId="Package\City Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+              endId="Package\City Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
               name="cities"
               startId="Package\City Data Flow Task\XML Source.Outputs[cities]" />
-            <path
-              refId="Package\City Data Flow Task.Paths[Data Conversion Output]"
-              endId="Package\City Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
-              name="Data Conversion Output"
-              startId="Package\City Data Flow Task\Data Conversion.Outputs[Data Conversion Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -2944,7 +2801,7 @@
                   dataType="System.String"
                   description="The XML schema definition used by the XML source adapter."
                   expressionType="Notify"
-                  name="XMLSchemaDefinition">D:\Orion eSolutions\SSIS\Examples\Sample Data\XMLCountryStateCity\CountriesStatesCities.xsd</property>
+                  name="XMLSchemaDefinition">D:\Orion eSolutions\SSIS Examples\Import-Country-State-City-Integrated-Service\SampleData\CountriesStatesCities.xsd</property>
                 <property
                   dataType="System.Boolean"
                   description="Identifies whether or not to use inline schema."
@@ -4207,7 +4064,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Country Data Flow Task\XML Source.Outputs[country_state_city].ExternalColumns[currency_name]"
-                      length="2000"
+                      length="255"
                       lineageId="Package\Country Data Flow Task\XML Source.Outputs[country_state_city].Columns[currency_name]"
                       name="currency_name"
                       truncationRowDisposition="FailComponent" />
@@ -4762,7 +4619,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{14B044CB-A0E0-4425-BA0B-79FB99374CE7}"
-          SQLTask:SqlStatementSource="USE [OrionDB]&#xA;&#xA;DROP TABLE IF EXISTS [dbo].[Cities]&#xA;&#xA;CREATE TABLE [dbo].[Cities](&#xA;&#x9;[cityid] [int] NULL,&#xA;&#x9;[stateid] [int] NULL,&#xA;&#x9;[name] [varchar](100) NULL,&#xA;&#x9;[latitude] [decimal](18, 10) NULL,&#xA;&#x9;[longitude] [decimal](18, 10) NULL&#xA;)&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="USE [OrionDB]&#xA;&#xA;DROP TABLE IF EXISTS [dbo].[Cities]&#xA;&#xA;CREATE TABLE [dbo].[Cities](&#xA;&#x9;[cityid] [int] NULL,&#xA;&#x9;[stateid] [int] NULL,&#xA;&#x9;[name] [nvarchar](1000) NULL,&#xA;&#x9;[latitude] [decimal](18, 10) NULL,&#xA;&#x9;[longitude] [decimal](18, 10) NULL&#xA;)&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -4796,7 +4653,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{14B044CB-A0E0-4425-BA0B-79FB99374CE7}"
-          SQLTask:SqlStatementSource="USE [OrionDB]&#xA;&#xA;DROP TABLE IF EXISTS [dbo].[States]&#xA;&#xA;CREATE TABLE [dbo].[States](&#xA;&#x9;[stateid] [int] NULL,&#xA;&#x9;[countryid] [int] NULL,&#xA;&#x9;[name] [varchar](MAX) NULL,&#xA;&#x9;[state_code] [varchar](500) NULL,&#xA;&#x9;[latitude] [decimal](18, 10) NULL,&#xA;&#x9;[longitude] [decimal](18, 10) NULL,&#xA;&#x9;[type] [varchar](500) NULL&#xA;)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="USE [OrionDB]&#xA;&#xA;DROP TABLE IF EXISTS [dbo].[States]&#xA;&#xA;CREATE TABLE [dbo].[States](&#xA;&#x9;[stateid] [int] NULL,&#xA;&#x9;[countryid] [int] NULL,&#xA;&#x9;[name] [nvarchar](max) NULL,&#xA;&#x9;[state_code] [nvarchar](500) NULL,&#xA;&#x9;[latitude] [decimal](18, 10) NULL,&#xA;&#x9;[longitude] [decimal](18, 10) NULL,&#xA;&#x9;[type] [nvarchar](500) NULL&#xA;)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -4830,216 +4687,6 @@
         <pipeline
           version="1">
           <components>
-            <component
-              refId="Package\State Data Flow Task\Data Conversion"
-              componentClassID="Microsoft.DataConvert"
-              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Data Conversion"
-              name="Data Conversion"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\State Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
-                  name="Data Conversion Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\State Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[id]"
-                      cachedDataType="ui2"
-                      cachedName="id"
-                      lineageId="Package\State Data Flow Task\XML Source.Outputs[states].Columns[id]" />
-                    <inputColumn
-                      refId="Package\State Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[state_code]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="state_code"
-                      lineageId="Package\State Data Flow Task\XML Source.Outputs[states].Columns[state_code]" />
-                    <inputColumn
-                      refId="Package\State Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[latitude]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="latitude"
-                      lineageId="Package\State Data Flow Task\XML Source.Outputs[states].Columns[latitude]" />
-                    <inputColumn
-                      refId="Package\State Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[longitude]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="longitude"
-                      lineageId="Package\State Data Flow Task\XML Source.Outputs[states].Columns[longitude]" />
-                    <inputColumn
-                      refId="Package\State Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[type]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="type"
-                      lineageId="Package\State Data Flow Task\XML Source.Outputs[states].Columns[type]" />
-                    <inputColumn
-                      refId="Package\State Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[country_state_city_Id]"
-                      cachedDataType="ui8"
-                      cachedName="country_state_city_Id"
-                      lineageId="Package\State Data Flow Task\XML Source.Outputs[states].Columns[country_state_city_Id]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\State Data Flow Task\Data Conversion.Outputs[Data Conversion Output]"
-                  exclusionGroup="1"
-                  name="Data Conversion Output"
-                  synchronousInputId="Package\State Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\State Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of id]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\State Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of id]"
-                      name="Copy of id"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\State Data Flow Task\XML Source.Outputs[states].Columns[id]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\State Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of state_code]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="500"
-                      lineageId="Package\State Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of state_code]"
-                      name="Copy of state_code"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\State Data Flow Task\XML Source.Outputs[states].Columns[state_code]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\State Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of latitude]"
-                      dataType="decimal"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\State Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of latitude]"
-                      name="Copy of latitude"
-                      scale="10"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\State Data Flow Task\XML Source.Outputs[states].Columns[latitude]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\State Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of longitude]"
-                      dataType="decimal"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\State Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of longitude]"
-                      name="Copy of longitude"
-                      scale="10"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\State Data Flow Task\XML Source.Outputs[states].Columns[longitude]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\State Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of type]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="500"
-                      lineageId="Package\State Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of type]"
-                      name="Copy of type"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\State Data Flow Task\XML Source.Outputs[states].Columns[type]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\State Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of country_state_city_Id]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\State Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of country_state_city_Id]"
-                      name="Copy of country_state_city_Id"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\State Data Flow Task\XML Source.Outputs[states].Columns[country_state_city_Id]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\State Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Data Conversion Error Output"
-                  synchronousInputId="Package\State Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\State Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\State Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\State Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\State Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
             <component
               refId="Package\State Data Flow Task\OLE DB Destination"
               componentClassID="Microsoft.OLEDBDestination"
@@ -5078,7 +4725,7 @@
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">3</property>
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
@@ -5086,7 +4733,7 @@
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">true</property>
+                  name="FastLoadKeepNulls">false</property>
                 <property
                   dataType="System.String"
                   description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
@@ -5113,47 +4760,52 @@
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\State Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of country_state_city_Id]"
-                      cachedDataType="i4"
-                      cachedName="Copy of country_state_city_Id"
+                      refId="Package\State Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[country_state_city_Id]"
+                      cachedDataType="ui8"
+                      cachedName="country_state_city_Id"
                       externalMetadataColumnId="Package\State Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[countryid]"
-                      lineageId="Package\State Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of country_state_city_Id]" />
+                      lineageId="Package\State Data Flow Task\XML Source.Outputs[states].Columns[country_state_city_Id]" />
                     <inputColumn
-                      refId="Package\State Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of latitude]"
-                      cachedDataType="decimal"
-                      cachedName="Copy of latitude"
-                      cachedScale="10"
+                      refId="Package\State Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[latitude]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="latitude"
                       externalMetadataColumnId="Package\State Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[latitude]"
-                      lineageId="Package\State Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of latitude]" />
+                      lineageId="Package\State Data Flow Task\XML Source.Outputs[states].Columns[latitude]" />
                     <inputColumn
-                      refId="Package\State Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of longitude]"
-                      cachedDataType="decimal"
-                      cachedName="Copy of longitude"
-                      cachedScale="10"
+                      refId="Package\State Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[longitude]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="longitude"
                       externalMetadataColumnId="Package\State Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[longitude]"
-                      lineageId="Package\State Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of longitude]" />
+                      lineageId="Package\State Data Flow Task\XML Source.Outputs[states].Columns[longitude]" />
                     <inputColumn
-                      refId="Package\State Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of id]"
-                      cachedDataType="i4"
-                      cachedName="Copy of id"
+                      refId="Package\State Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[states_Id]"
+                      cachedDataType="ui8"
+                      cachedName="states_Id"
                       externalMetadataColumnId="Package\State Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[stateid]"
-                      lineageId="Package\State Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of id]" />
+                      lineageId="Package\State Data Flow Task\XML Source.Outputs[states].Columns[states_Id]" />
                     <inputColumn
-                      refId="Package\State Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of state_code]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="500"
-                      cachedName="Copy of state_code"
+                      refId="Package\State Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[state_code]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="state_code"
                       externalMetadataColumnId="Package\State Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[state_code]"
-                      lineageId="Package\State Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of state_code]" />
+                      lineageId="Package\State Data Flow Task\XML Source.Outputs[states].Columns[state_code]" />
                     <inputColumn
-                      refId="Package\State Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of type]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="500"
-                      cachedName="Copy of type"
+                      refId="Package\State Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[type]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="type"
                       externalMetadataColumnId="Package\State Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[type]"
-                      lineageId="Package\State Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of type]" />
+                      lineageId="Package\State Data Flow Task\XML Source.Outputs[states].Columns[type]" />
+                    <inputColumn
+                      refId="Package\State Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[name]"
+                      cachedDataType="wstr"
+                      cachedLength="1500"
+                      cachedName="name"
+                      externalMetadataColumnId="Package\State Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[name]"
+                      lineageId="Package\State Data Flow Task\XML Source.Outputs[states].Columns[name]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -5179,16 +4831,18 @@
                       name="stateid" />
                     <externalMetadataColumn
                       refId="Package\State Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[state_code]"
-                      codePage="1252"
-                      dataType="str"
+                      dataType="wstr"
                       length="500"
                       name="state_code" />
                     <externalMetadataColumn
                       refId="Package\State Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[type]"
-                      codePage="1252"
-                      dataType="str"
+                      dataType="wstr"
                       length="500"
                       name="type" />
+                    <externalMetadataColumn
+                      refId="Package\State Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[name]"
+                      dataType="nText"
+                      name="name" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -5246,7 +4900,7 @@
                   dataType="System.String"
                   description="The XML schema definition used by the XML source adapter."
                   expressionType="Notify"
-                  name="XMLSchemaDefinition">D:\Orion eSolutions\SSIS\Examples\Sample Data\XMLCountryStateCity\CountriesStatesCities.xsd</property>
+                  name="XMLSchemaDefinition">D:\Orion eSolutions\SSIS Examples\Import-Country-State-City-Integrated-Service\SampleData\CountriesStatesCities.xsd</property>
                 <property
                   dataType="System.Boolean"
                   description="Identifies whether or not to use inline schema."
@@ -6132,6 +5786,15 @@
                   </properties>
                   <outputColumns>
                     <outputColumn
+                      refId="Package\State Data Flow Task\XML Source.Outputs[states].Columns[states_Id]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\State Data Flow Task\XML Source.Outputs[states].ExternalColumns[states_Id]"
+                      lineageId="Package\State Data Flow Task\XML Source.Outputs[states].Columns[states_Id]"
+                      name="states_Id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
                       refId="Package\State Data Flow Task\XML Source.Outputs[states].Columns[id]"
                       dataType="ui2"
                       errorOrTruncationOperation="Conversion"
@@ -6139,6 +5802,16 @@
                       externalMetadataColumnId="Package\State Data Flow Task\XML Source.Outputs[states].ExternalColumns[id]"
                       lineageId="Package\State Data Flow Task\XML Source.Outputs[states].Columns[id]"
                       name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\State Data Flow Task\XML Source.Outputs[states].Columns[name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\State Data Flow Task\XML Source.Outputs[states].ExternalColumns[name]"
+                      length="1500"
+                      lineageId="Package\State Data Flow Task\XML Source.Outputs[states].Columns[name]"
+                      name="name"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\State Data Flow Task\XML Source.Outputs[states].Columns[state_code]"
@@ -6215,7 +5888,7 @@
                     <externalMetadataColumn
                       refId="Package\State Data Flow Task\XML Source.Outputs[states].ExternalColumns[name]"
                       dataType="wstr"
-                      length="255"
+                      length="1500"
                       name="name">
                       <properties>
                         <property
@@ -7018,13 +6691,8 @@
           </components>
           <paths>
             <path
-              refId="Package\State Data Flow Task.Paths[Data Conversion Output]"
-              endId="Package\State Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
-              name="Data Conversion Output"
-              startId="Package\State Data Flow Task\Data Conversion.Outputs[Data Conversion Output]" />
-            <path
               refId="Package\State Data Flow Task.Paths[states]"
-              endId="Package\State Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+              endId="Package\State Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
               name="states"
               startId="Package\State Data Flow Task\XML Source.Outputs[states]" />
           </paths>
@@ -7465,7 +7133,7 @@
                   dataType="System.String"
                   description="The XML schema definition used by the XML source adapter."
                   expressionType="Notify"
-                  name="XMLSchemaDefinition">D:\Orion eSolutions\SSIS\Examples\Sample Data\XMLCountryStateCity\CountriesStatesCities.xsd</property>
+                  name="XMLSchemaDefinition">D:\Orion eSolutions\SSIS Examples\Import-Country-State-City-Integrated-Service\SampleData\CountriesStatesCities.xsd</property>
                 <property
                   dataType="System.Boolean"
                   description="Identifies whether or not to use inline schema."
@@ -9341,13 +9009,37 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="177,42"
+          Id="Package\City Data Flow Task"
+          TopLeft="276,210" />
+        <NodeLayout
           Size="197,42"
           Id="Package\Country Data Flow Task"
           TopLeft="266,36" />
         <NodeLayout
+          Size="134,42"
+          Id="Package\Create City"
+          TopLeft="51,216" />
+        <NodeLayout
           Size="162,42"
           Id="Package\Create Countries"
           TopLeft="30,36" />
+        <NodeLayout
+          Size="146,42"
+          Id="Package\Create States"
+          TopLeft="293,122" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Create TimeZone"
+          TopLeft="503,38" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\State Data Flow Task"
+          TopLeft="24,121" />
+        <NodeLayout
+          Size="208,42"
+          Id="Package\TimeZone Data Flow Task"
+          TopLeft="477,123" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="192,57">
@@ -9370,14 +9062,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="165,42"
-          Id="Package\Create TimeZone"
-          TopLeft="503,38" />
-        <NodeLayout
-          Size="208,42"
-          Id="Package\TimeZone Data Flow Task"
-          TopLeft="477,123" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="583.25,80">
@@ -9422,10 +9106,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="146,42"
-          Id="Package\Create States"
-          TopLeft="293,122" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
           TopLeft="477,143.5">
@@ -9448,10 +9128,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="184,42"
-          Id="Package\State Data Flow Task"
-          TopLeft="24,121" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
           TopLeft="293,142.5">
@@ -9474,10 +9150,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="134,42"
-          Id="Package\Create City"
-          TopLeft="51,216" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
           TopLeft="117,163">
@@ -9500,10 +9172,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="177,42"
-          Id="Package\City Data Flow Task"
-          TopLeft="276,210" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
           TopLeft="185,234">
@@ -9530,22 +9198,109 @@
     </LayoutInfo>
   </Package>
   <TaskHost
+    design-time-name="Package\City Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="177,42"
+          Id="Package\City Data Flow Task\OLE DB Destination"
+          TopLeft="406,182.5" />
+        <NodeLayout
+          Size="139,42"
+          Id="Package\City Data Flow Task\XML Source"
+          TopLeft="90,179" />
+        <EdgeLayout
+          Id="Package\City Data Flow Task.Paths[cities]"
+          TopLeft="229,201.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="177,0"
+              Start="0,0"
+              End="169.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="169.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="72.8628125,5,23.774375,9.451171875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\City Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
     design-time-name="Package\Country Data Flow Task">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="161,42"
-          Id="Package\Country Data Flow Task\Data Conversion"
-          TopLeft="239,55" />
-        <NodeLayout
           Size="139,42"
           Id="Package\Country Data Flow Task\XML Source"
           TopLeft="60,171.5" />
         <NodeLayout
+          Size="161,42"
+          Id="Package\Country Data Flow Task\Data Conversion"
+          TopLeft="239,55" />
+        <NodeLayout
           Size="177,42"
           Id="Package\Country Data Flow Task\OLE DB Destination"
           TopLeft="408,181.5" />
+        <EdgeLayout
+          Id="Package\Country Data Flow Task.Paths[Data Conversion Output]"
+          TopLeft="345,97">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="151.5,84.5"
+              Start="0,0"
+              End="151.5,77">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2988929889299" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.2988929889299"
+                    Point2="0,34.2988929889299"
+                    Point3="4,34.2988929889299" />
+                  <mssgle:LineSegment
+                    End="147.5,34.2988929889299" />
+                  <mssgle:CubicBezierSegment
+                    Point1="147.5,34.2988929889299"
+                    Point2="151.5,34.2988929889299"
+                    Point3="151.5,38.2988929889299" />
+                  <mssgle:LineSegment
+                    End="151.5,77" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Country Data Flow Task.Paths[country_state_city]"
           TopLeft="129.5,171.5">
@@ -9582,45 +9337,64 @@
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Country Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\State Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="139,42"
+          Id="Package\State Data Flow Task\XML Source"
+          TopLeft="90,179" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\State Data Flow Task\OLE DB Destination"
+          TopLeft="406,182.5" />
         <EdgeLayout
-          Id="Package\Country Data Flow Task.Paths[Data Conversion Output]"
-          TopLeft="345,97">
+          Id="Package\State Data Flow Task.Paths[states]"
+          TopLeft="229,201.75">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="151.5,84.5"
+              EndConnector="177,0"
               Start="0,0"
-              End="151.5,77">
+              End="169.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,30.2988929889299" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,30.2988929889299"
-                    Point2="0,34.2988929889299"
-                    Point3="4,34.2988929889299" />
-                  <mssgle:LineSegment
-                    End="147.5,34.2988929889299" />
-                  <mssgle:CubicBezierSegment
-                    Point1="147.5,34.2988929889299"
-                    Point2="151.5,34.2988929889299"
-                    Point3="151.5,38.2988929889299" />
-                  <mssgle:LineSegment
-                    End="151.5,77" />
+                    End="169.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="70.95234375,5,27.5953125,9.1728515625"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Country Data Flow Task\OLE DB Destination">
+    design-time-name="Package\State Data Flow Task\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -9724,212 +9498,6 @@
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\TimeZone Data Flow Task\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\State Data Flow Task">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="161,42"
-          Id="Package\State Data Flow Task\Data Conversion"
-          TopLeft="242,69" />
-        <NodeLayout
-          Size="177,42"
-          Id="Package\State Data Flow Task\OLE DB Destination"
-          TopLeft="406,182.5" />
-        <EdgeLayout
-          Id="Package\State Data Flow Task.Paths[Data Conversion Output]"
-          TopLeft="348,111">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="146.5,71.5"
-              Start="0,0"
-              End="146.5,64">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.0221402214022" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.0221402214022"
-                    Point2="0,29.0221402214022"
-                    Point3="4,29.0221402214022" />
-                  <mssgle:LineSegment
-                    End="142.5,29.0221402214022" />
-                  <mssgle:CubicBezierSegment
-                    Point1="142.5,29.0221402214022"
-                    Point2="146.5,29.0221402214022"
-                    Point3="146.5,33.0221402214022" />
-                  <mssgle:LineSegment
-                    End="146.5,64" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="139,42"
-          Id="Package\State Data Flow Task\XML Source"
-          TopLeft="90,179" />
-        <EdgeLayout
-          Id="Package\State Data Flow Task.Paths[states]"
-          TopLeft="159.5,179">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="137.5,-68"
-              Start="0,0"
-              End="137.5,-60.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-36.3985239852399" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-36.3985239852399"
-                    Point2="0,-40.3985239852399"
-                    Point3="4,-40.3985239852399" />
-                  <mssgle:LineSegment
-                    End="133.5,-40.3985239852399" />
-                  <mssgle:CubicBezierSegment
-                    Point1="133.5,-40.3985239852399"
-                    Point2="137.5,-40.3985239852399"
-                    Point3="137.5,-44.3985239852399" />
-                  <mssgle:LineSegment
-                    End="137.5,-60.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="54.95234375,-35.3985239852399,27.5953125,9.1728515625"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\State Data Flow Task\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\City Data Flow Task">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="139,42"
-          Id="Package\City Data Flow Task\XML Source"
-          TopLeft="90,179" />
-        <NodeLayout
-          Size="177,42"
-          Id="Package\City Data Flow Task\OLE DB Destination"
-          TopLeft="406,182.5" />
-        <NodeLayout
-          Size="161,42"
-          Id="Package\City Data Flow Task\Data Conversion"
-          TopLeft="247,66" />
-        <EdgeLayout
-          Id="Package\City Data Flow Task.Paths[cities]"
-          TopLeft="159.5,179">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="168,-71"
-              Start="0,0"
-              End="168,-63.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-31.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-31.5"
-                    Point2="0,-35.5"
-                    Point3="4,-35.5" />
-                  <mssgle:LineSegment
-                    End="164,-35.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="164,-35.5"
-                    Point2="168,-35.5"
-                    Point3="168,-39.5" />
-                  <mssgle:LineSegment
-                    End="168,-63.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="72.1128125,-30.5,23.774375,9.451171875"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\City Data Flow Task.Paths[Data Conversion Output]"
-          TopLeft="353,108">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="141.5,74.5"
-              Start="0,0"
-              End="141.5,67">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.239852398524" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26.239852398524"
-                    Point2="0,30.239852398524"
-                    Point3="4,30.239852398524" />
-                  <mssgle:LineSegment
-                    End="137.5,30.239852398524" />
-                  <mssgle:CubicBezierSegment
-                    Point1="137.5,30.239852398524"
-                    Point2="141.5,30.239852398524"
-                    Point3="141.5,34.239852398524" />
-                  <mssgle:LineSegment
-                    End="141.5,67" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\City Data Flow Task\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
